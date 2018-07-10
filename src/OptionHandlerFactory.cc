@@ -1990,7 +1990,7 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
    */
   {
     OptionHandler* op(new BooleanOptionHandler(
-        PREF_BDY_403_RETRY, TEXT_BDY_403_RETRY, A2_V_FALSE, OptionHandler::OPT_ARG));
+        PREF_HTTP_403_RETRY, TEXT_HTTP_403_RETRY, A2_V_FALSE, OptionHandler::OPT_ARG));
     op->addTag(TAG_HTTP);
     op->setInitialOption(true);
     handlers.push_back(op);

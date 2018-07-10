@@ -1130,7 +1130,7 @@
 /**
  * PanDownload
  */
-#define TEXT_BDY_403_RETRY \
-  _(" --bdy-403-retry[=true|false]")
+#define TEXT_HTTP_403_RETRY \
+  _(" --http-403-retry[=true|false]")
 
 // clang-format on

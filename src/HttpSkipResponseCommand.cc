@@ -214,7 +214,7 @@ bool HttpSkipResponseCommand::processResponse()
       }
       throw DL_ABORT_EX2(EX_AUTH_FAILED, error_code::HTTP_AUTH_FAILED);
     case 403:
-      if (getOption()->getAsBool(PREF_BDY_403_RETRY)) {
+      if (getOption()->getAsBool(PREF_HTTP_403_RETRY)) {
         throw DL_RETRY_EX2(fmt(EX_BAD_STATUS, statusCode),
                            error_code::HTTP_PROTOCOL_ERROR);
       }
