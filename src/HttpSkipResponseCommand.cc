@@ -204,6 +204,13 @@ bool HttpSkipResponseCommand::processResponse()
   auto statusCode = httpResponse_->getStatusCode();
   if (statusCode >= 400) {
     switch (statusCode) {
+    case 400:
+      if (getOption()->getAsBool(PREF_HTTP_400_RETRY)) {
+        throw DL_RETRY_EX2(fmt(EX_BAD_STATUS, statusCode),
+                           error_code::HTTP_PROTOCOL_ERROR);
+      }
+      throw DL_ABORT_EX2(fmt(EX_BAD_STATUS, statusCode),
+                         error_code::HTTP_PROTOCOL_ERROR);
     case 401:
       if (getOption()->getAsBool(PREF_HTTP_AUTH_CHALLENGE) &&
           !httpResponse_->getHttpRequest()->authenticationUsed() &&

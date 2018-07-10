@@ -1988,6 +1988,15 @@ std::vector<OptionHandler*> OptionHandlerFactory::createOptionHandlers()
   /**
    * PanDownload
    */
+  //400重试
+  {
+    OptionHandler* op(new BooleanOptionHandler(
+        PREF_HTTP_400_RETRY, TEXT_HTTP_400_RETRY, A2_V_FALSE, OptionHandler::OPT_ARG));
+    op->addTag(TAG_HTTP);
+    op->setInitialOption(true);
+    handlers.push_back(op);
+  }
+  //403重试
   {
     OptionHandler* op(new BooleanOptionHandler(
         PREF_HTTP_403_RETRY, TEXT_HTTP_403_RETRY, A2_V_FALSE, OptionHandler::OPT_ARG));
