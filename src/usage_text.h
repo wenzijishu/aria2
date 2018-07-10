@@ -1127,4 +1127,10 @@
     "                              successful, then skip downloading metadata from\n" \
     "                              DHT.")
 
+/**
+ * PanDownload
+ */
+#define TEXT_BDY_403_RETRY \
+  _(" --bdy-403-retry[=true|false]")
+
 // clang-format on

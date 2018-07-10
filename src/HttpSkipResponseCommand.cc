@@ -213,6 +213,13 @@ bool HttpSkipResponseCommand::processResponse()
         return prepareForRetry(0);
       }
       throw DL_ABORT_EX2(EX_AUTH_FAILED, error_code::HTTP_AUTH_FAILED);
+    case 403:
+      if (getOption()->getAsBool(PREF_BDY_403_RETRY)) {
+        throw DL_RETRY_EX2(fmt(EX_BAD_STATUS, statusCode),
+                           error_code::HTTP_PROTOCOL_ERROR);
+      }
+      throw DL_ABORT_EX2(fmt(EX_BAD_STATUS, statusCode),
+                         error_code::HTTP_PROTOCOL_ERROR);
     case 404:
       if (getOption()->getAsInt(PREF_MAX_FILE_NOT_FOUND) == 0) {
         throw DL_ABORT_EX2(MSG_RESOURCE_NOT_FOUND,
