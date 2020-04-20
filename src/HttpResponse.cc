@@ -76,6 +76,7 @@ void HttpResponse::validateResponse() const
   case 206: // Partial Content
     if (!httpHeader_->defined(HttpHeader::TRANSFER_ENCODING)) {
       // compare the received range against the requested range
+	  /*
       auto responseRange = httpHeader_->getRange();
       if (!httpRequest_->isRangeSatisfied(responseRange)) {
         throw DL_ABORT_EX2(
@@ -85,6 +86,7 @@ void HttpResponse::validateResponse() const
                 responseRange.entityLength),
             error_code::CANNOT_RESUME);
       }
+	  */
     }
     return;
   case 304: // Not Modified

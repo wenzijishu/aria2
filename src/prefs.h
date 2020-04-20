@@ -540,6 +540,13 @@ extern PrefPtr PREF_METALINK_ENABLE_UNIQUE_PROTOCOL;
 // values: a string
 extern PrefPtr PREF_METALINK_BASE_URI;
 
+/**
+ * PanDownload
+ */
+// values: true | false
+extern PrefPtr PREF_HTTP_400_RETRY;
+extern PrefPtr PREF_HTTP_403_RETRY;
+
 } // namespace aria2
 
 #endif // D_PREFS_H

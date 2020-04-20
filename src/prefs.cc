@@ -590,4 +590,11 @@ PrefPtr PREF_METALINK_ENABLE_UNIQUE_PROTOCOL =
     makePref("metalink-enable-unique-protocol");
 PrefPtr PREF_METALINK_BASE_URI = makePref("metalink-base-uri");
 
+/**
+ * PanDownload
+ */
+// value: true | false
+PrefPtr PREF_HTTP_400_RETRY = makePref("http-400-retry");
+PrefPtr PREF_HTTP_403_RETRY = makePref("http-403-retry");
+
 } // namespace aria2
